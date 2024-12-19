@@ -1,0 +1,470 @@
+/* css/main.css */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+    background-color: #f5f6fa;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    width: 95%;
+}
+
+h1, h2, h3 {
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    padding-bottom: 20px;
+    border-bottom: 2px solid #eee;
+}
+
+.input-section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.input-group {
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: #34495e;
+    font-weight: bold;
+}
+
+input, select {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+/* Add at the end */
+.error-container {
+    color: #e74c3c;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+    display: none;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+}
+
+.input-row input {
+    flex: 2;
+}
+
+.input-row select {
+    flex: 1;
+}
+
+.tooltip {
+    position: relative;
+    display: inline-block;
+    margin-left: 5px;
+}
+
+.tooltip-text {
+    visibility: hidden;
+    width: 200px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 5px;
+    border-radius: 6px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 12px;
+}
+
+.tooltip:hover .tooltip-text {
+    visibility: visible;
+}
+
+.calculate-btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    background-color: #3498db;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 20px 0;
+    transition: background-color 0.3s;
+}
+
+.calculate-btn:hover {
+    background-color: #2980b9;
+}
+
+.results-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+}
+
+.info-message {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+.disabled-field {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+.input-group .info-message {
+    margin-top: 5px;
+    min-height: 20px;
+}
+
+/* Add to your css/main.css */
+.reset-btn {
+    background-color: #95a5a6;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-left: 10px;
+    font-size: 1em;
+}
+
+.reset-btn:hover {
+    background-color: #7f8c8d;
+}
+
+.reset-btn i {
+    margin-right: 5px;
+}
+
+.required-field {
+    border: 2px solid #e74c3c !important;
+    background-color: #fdeaea !important;
+}
+
+.warning-message {
+    color: #e74c3c !important;
+    font-weight: bold !important;
+}
+
+.info-message {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+    font-style: italic;
+    transition: all 0.3s ease;
+}
+
+.info-message {
+    margin-top: 8px;
+    padding: 8px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    font-size: 0.9em;
+    color: #495057;
+}
+
+.info-message br {
+    margin-bottom: 4px;
+}
+
+/* Add animation for the warning */
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.required-field:focus {
+    animation: shake 0.3s ease-in-out;
+}
+
+/* Add styles for disabled select elements */
+select.disabled-field {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Style for the input row when disabled */
+.input-row input[disabled],
+.input-row select[disabled] {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+    opacity: 0.7;
+}
+
+/* Optional: Style for the entire input row when disabled */
+.input-row.disabled {
+    opacity: 0.7;
+}
+
+
+.calculation-steps {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+}
+
+.calculation-steps-section {
+    margin: 20px 0;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.calculation-step {
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #f8f9fa;
+    border-left: 3px solid #3498db;
+}
+
+.calculation-step .formula {
+    font-family: monospace;
+    background-color: #eee;
+    padding: 5px;
+    border-radius: 4px;
+}
+
+.template-selector {
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.template-selector select {
+    width: auto;
+    padding: 8px 20px;
+    font-size: 16px;
+}
+
+.dau-percentage {
+    font-size: 0.9em;
+    color: #666;
+    margin-top: 5px;
+    font-style: italic;
+}
+
+#requestsInfo {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #e8f4fc;
+    border-radius: 6px;
+    border-left: 4px solid #3498db;
+}
+
+/* Better visibility for the read/write ratio calculations */
+#requestsInfo .info-message {
+    background-color: transparent;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Make the numbers in the requests info stand out */
+#requestsInfo .info-message br + * {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+
+
+
+#storageInfo {
+    margin-top: 10px;
+    padding: 12px;
+    background-color: #e8f4fc;
+    border-radius: 6px;
+    border-left: 4px solid #3498db;
+}
+
+/* Better visibility for the read/write ratio calculations */
+#storageInfo .info-message {
+    background-color: transparent;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Make the numbers in the requests info stand out */
+#storageInfo .info-message br + * {
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+/* Improve the transition when switching between ratio options */
+#readWriteRatio {
+    transition: all 0.3s ease;
+}
+
+/* Style for the ratio select when in file mode */
+#readWriteRatio.file-mode {
+    border-color: #3498db;
+}
+
+/* Add a subtle indicator for which mode is active */
+.input-group.active-mode {
+    border-left: 4px solid #3498db;
+    padding-left: 12px;
+}
+
+.request-group, .file-group {
+    position: relative;
+    margin-bottom: 20px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.request-group.disabled, .file-group.disabled {
+    background-color: #f5f5f5;
+}
+
+.info-message {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 4px;
+    transition: color 0.3s ease;
+}
+
+.warning-message {
+    color: #ff4444;
+}
+
+.disabled-field {
+    background-color: #f0f0f0 !important;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.required-field {
+    border: 1px solid #ff4444 !important;
+    background-color: #fff8f8 !important;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.sub-input {
+    flex: 1;
+    margin-right: 15px;
+}
+
+.sub-input:last-child {
+    margin-right: 0;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.request-group, .file-group {
+    border: 1px solid #e0e0e0;
+    padding: 15px;
+    border-radius: 4px;
+    margin-bottom: 20px;
+}
+
+.request-group.disabled, .file-group.disabled {
+    background-color: #f5f5f5;
+}
+
+.input-row {
+    display: flex;
+    gap: 10px;
+    margin-top: 5px;
+}
+
+.info-message {
+    font-size: 0.8em;
+    color: #666;
+    margin-top: 4px;
+}
+
+/* Add to your css/main.css */
+#requestsInfo {
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+
+#storageInfo {
+    margin-top: 10px;
+    padding: 8px;
+    background-color: #f8f9fa;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+#requestsInfo .info-message {
+    color: #495057;
+    line-height: 1.6;
+}
+
+#storageInfo .info-message {
+    color: #495057;
+    line-height: 1.6;
+}
+
+#requestsInfo br {
+    margin-bottom: 4px;
+}
+#storageInfo br {
+    margin-bottom: 4px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+    }
+
+    .input-row {
+        flex-direction: column;
+        gap: 5px;
+    }
+
+    .input-row input,
+    .input-row select {
+        width: 100%;
+    }
+}

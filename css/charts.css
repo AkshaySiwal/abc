@@ -1,0 +1,72 @@
+/* css/charts.css */
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.chart-container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.chart-container h3 {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 15px;
+    font-size: 1.1em;
+}
+
+.chart-container canvas {
+    width: 100% !important;
+    height: 300px !important;
+}
+
+.chart-legend {
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #666;
+    text-align: center;
+}
+
+.chart-tooltip {
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+@media (max-width: 768px) {
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .chart-container {
+        padding: 15px;
+    }
+
+    .chart-container canvas {
+        height: 250px !important;
+    }
+}
+
+/* Chart-specific styles */
+.storage-growth-chart {
+    border-bottom: 2px solid #3498db;
+}
+
+.daily-usage-chart {
+    border-bottom: 2px solid #2ecc71;
+}
+
+.read-write-chart {
+    border-bottom: 2px solid #e74c3c;
+}
+
+.resource-utilization-chart {
+    border-bottom: 2px solid #f1c40f;
+}
