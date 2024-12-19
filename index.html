@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Design BOE Calculator</title>
+    <!-- External Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/charts.css">
+</head>
+<body>
+    <div class="container">
+        <h1><i class="fas fa-calculator"></i> System Design BOE Calculator</h1>
+
+        <!-- Template Selector -->
+        <div class="template-selector">
+            <label for="template">Quick Start Templates</label>
+            <select id="template" onchange="loadTemplate()">
+                <option value="">Custom Calculation</option>
+                <option value="social">Social Media Platform</option>
+                <option value="video">Video Streaming Service</option>
+                <option value="photo">Photo Sharing App</option>
+                <option value="ecommerce">E-commerce Platform</option>
+                <option value="messaging">Messaging Platform</option>
+            </select>
+        </div>
+
+        <!-- User Base Metrics Section -->
+        <div class="input-section">
+            <h2>User Base Metrics</h2>
+            <div class="input-group">
+                <label>
+                    Total Users
+                    <div class="tooltip">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="tooltip-text">Total number of registered users in the system</span>
+                    </div>
+                </label>
+                <input type="number" id="totalUsers" placeholder="e.g., 1000000" onchange="updateDauPercentage()">
+            </div>
+
+            <div class="input-group">
+                <label>Daily Active Users (DAU)</label>
+                <div class="input-row">
+                    <input type="number" id="dau" placeholder="Enter DAU" onchange="updateDauPercentage()">
+                    <select id="dauType" onchange="updateDauPercentage()">
+                        <option value="absolute">Absolute Number</option>
+                        <option value="percentage">Percentage of Total Users</option>
+                    </select>
+                </div>
+                <div id="dauPercentageDisplay" class="dau-percentage"></div>
+            </div>
+
+            <div class="input-group">
+                <label>
+                    Storage Per User (GB)
+                    <div class="tooltip">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="tooltip-text">Maximum storage allocated per user</span>
+                    </div>
+                </label>
+                <input type="number" id="storagePerUser" placeholder="e.g., 10">
+
+            </div>
+
+            <!-- Replace the existing Files Upload input groups with these -->
+<div class="input-group">
+    <label>
+        Files Uploaded Per Day Per User
+        <div class="tooltip">
+            <i class="fas fa-info-circle"></i>
+            <span class="tooltip-text">Average number of files uploaded by each active user per day</span>
+        </div>
+    </label>
+    <input type="number" id="filesPerDay" placeholder="e.g., 2">
+    <div id="filesPerDayInfo" class="info-message"></div>
+</div>
+
+<div class="input-group">
+    <label>
+        Average File Size (KB)
+        <div class="tooltip">
+            <i class="fas fa-info-circle"></i>
+            <span class="tooltip-text">Average size of each uploaded file in kilobytes</span>
+        </div>
+    </label>
+    <input type="number" id="avgFileSize" placeholder="e.g., 500">
+    <div id="avgFileSizeInfo" class="info-message"></div>
+    <div id="storageInfo" class="info-message"></div>
+</div>
+        </div>
+
+        <!-- Usage Patterns Section -->
+        <div class="input-section">
+            <h2>Usage Patterns</h2>
+            <!-- Replace the existing Requests Per User input group with this -->
+<div class="input-group">
+    <label>
+        Requests Per User
+        <div class="tooltip">
+            <i class="fas fa-info-circle"></i>
+            <span class="tooltip-text">Number of requests per user per time period</span>
+        </div>
+    </label>
+    <div class="input-row">
+        <input type="number" id="requestCount" placeholder="e.g., 100">
+        <select id="requestPeriod">
+            <option value="second">Per Second</option>
+            <option value="hour">Per Hour</option>
+            <option value="day">Per Day</option>
+        </select>
+    </div>
+    <div id="requestCountInfo" class="info-message"></div>
+</div>
+
+            <div class="input-group">
+    <label>
+        Average Request Size (KB)
+        <div class="tooltip">
+            <i class="fas fa-info-circle"></i>
+            <span class="tooltip-text">Average size of each request in kilobytes</span>
+        </div>
+    </label>
+    <input type="number" id="avgRequestSize" placeholder="e.g., 1">
+    <div id="avgRequestSizeInfo" class="info-message"></div>
+</div>
+
+
+            <div class="input-group">
+                <label>
+                    Read/Write Ratio
+                    <div class="tooltip">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="tooltip-text">Ratio of read operations to write operations</span>
+                    </div>
+                </label>
+                <select id="readWriteRatio">
+                    <option value="100:1">100:1 (Read Heavy)</option>
+                    <option value="80:20">80:20 (Typical Social Media)</option>
+                    <option value="50:50">50:50 (Balanced)</option>
+                    <option value="20:80">20:80 (Write Heavy)</option>
+                </select>
+                <div id="requestsInfo" class="info-message"></div>
+            </div>
+        </div>
+
+        <!-- Growth Projections Section -->
+        <div class="input-section">
+            <h2>Growth Projections</h2>
+            <div class="input-group">
+                <label>
+                    Growth Rate
+                    <div class="tooltip">
+                        <i class="fas fa-info-circle"></i>
+                        <span class="tooltip-text">Expected growth rate of the system</span>
+                    </div>
+                </label>
+                <div class="input-row">
+                    <input type="number" id="growthRate" placeholder="e.g., 20">
+                    <select id="growthPeriod">
+                        <option value="monthly">% Monthly</option>
+                        <option value="yearly">% Yearly</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Calculate Button -->
+        <button onclick="calculateAll()" class="calculate-btn">
+            <i class="fas fa-calculator"></i> Calculate Requirements
+        </button>
+        <!-- Add this next to your Calculate button -->
+<button onclick="resetForm()" class="reset-btn">
+    <i class="fas fa-undo"></i> Reset Form
+</button>
+
+        <!-- Results Section -->
+        <div id="results" class="results-section">
+            <!-- Results will be populated here -->
+        </div>
+        <div id="errorContainer" class="error-container"></div>
+
+        <!-- Calculation Steps Section -->
+        <div id="calculationSteps" class="calculation-steps-section">
+            <!-- Detailed calculation steps will be shown here -->
+        </div>
+
+        <!-- Charts Section -->
+        <div class="charts-grid">
+            <div class="chart-container">
+                <h3>Storage Growth Projection</h3>
+                <canvas id="storageGrowthChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Daily Usage Pattern</h3>
+                <canvas id="dailyUsageChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Read/Write Distribution</h3>
+                <canvas id="readWriteChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>Resource Utilization</h3>
+                <canvas id="resourceUtilizationChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <!-- Custom JS -->
+    <script src="js/utils.js"></script>
+    <script src="js/templates.js"></script>
+    <script src="js/calculations.js"></script>
+    <script src="js/charts.js"></script>
+    <script src="js/main.js"></script>
+
+
+
+
+</body>
+</html>
